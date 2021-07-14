@@ -1,0 +1,106 @@
+﻿<Window x:Class="PaintApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PaintApp"
+        mc:Ignorable="d"
+        Title="Paint" Height="800" Width="1500" Visibility="Visible" Background="White">
+    <Grid Background="AliceBlue">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="1405*"/>
+        </Grid.ColumnDefinitions>
+        <Canvas x:Name="paintcanvas" HorizontalAlignment="Left" Height="654" Margin="0,115,0,0" VerticalAlignment="Top" Width="1492"  Background="White" MouseMove="Canvas_MouseMove" MouseLeftButtonDown="paintcanvas_MouseLeftButtonDown" MouseLeftButtonUp="paintcanvas_MouseLeftButtonUp" MouseDown="paintcanvas_MouseDown" MouseUp="paintcanvas_MouseUp" Grid.ColumnSpan="2"/>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="10,36,0,0" VerticalAlignment="Top" Width="133" Grid.ColumnSpan="2">
+            <GroupBox Header="Çizim Boyutu" Height="73"  BorderBrush="Beige" HorizontalAlignment="Center" Width="130">
+
+                <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Width="100" Margin="10,10,0,18" IsSynchronizedWithCurrentItem="False" BorderBrush="Beige">
+                    <ComboBox.Background>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#F5F5DC" Offset="0"/>
+                            <GradientStop Color="Beige" Offset="1"/>
+                        </LinearGradientBrush>
+                    </ComboBox.Background>
+                    <Button Content="1" BorderBrush="White" Width="90" Background="Beige" HorizontalAlignment="Center" Click="Button_Click_1"/>
+                    <Button Content="3" BorderBrush="White" Width="90" Background="Beige" HorizontalAlignment="Center" Click="Button_Click_2"/>
+                    <Button Content="5" BorderBrush="White" Width="90" Background="Beige" HorizontalAlignment="Center" Click="Button_Click_3"/>
+                    <Button Content="10" BorderBrush="White" Width="90" Background="Beige" HorizontalAlignment="Center" Click="Button_Click_4"/>
+                    <Button Content="15" BorderBrush="White" Width="90" Background="Beige" HorizontalAlignment="Center" Click="Button_Click_5"/>
+                    <Button Content="20" BorderBrush="White" Width="90" Background="Beige" HorizontalAlignment="Center" Click="Button_Click_6"/>
+
+
+                </ComboBox>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="22" Margin="10,9,0,0" VerticalAlignment="Top" Width="75">
+            <Button Content="Kaydet" Margin="0,0,-39,0" Click="KaydetmeButonu" />
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="61,36,0,0" VerticalAlignment="Top" Width="133" Grid.Column="1">
+            <GroupBox Header="Renk" BorderBrush="Beige" HorizontalAlignment="Center" Width="130" Height="73">
+                <Button Content="         " Margin="41,10,37,8" RenderTransformOrigin="0.231,0.512" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32" Click="RenkSec" Background="Black"/>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="199,36,0,0" VerticalAlignment="Top" Width="133
+                    " RenderTransformOrigin="1.282,0.931" Grid.Column="1">
+            <GroupBox Header="Boya" BorderBrush="White" HorizontalAlignment="Center" Width="133" Height="73">
+                <Button Margin="37,10,38,8" RenderTransformOrigin="0.231,0.512" Height="32" Click="ArkaPlanBoyasi" Width="46" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="boyama.jpg"/>
+                    </Button.Background>
+                </Button>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="337,36,0,0" VerticalAlignment="Top" Width="133" Grid.Column="1">
+            <GroupBox Header="Kalem" BorderBrush="Beige" HorizontalAlignment="Center" Width="130" Height="73">
+                <Button  Margin="40,10,37,8" RenderTransformOrigin="0.231,0.512" HorizontalAlignment="Center" VerticalAlignment="Center" Height="32" Click="KalemButonu" Width="41">
+                    <Button.Background>
+                        <ImageBrush ImageSource="kalem.png"/>
+                    </Button.Background>
+                </Button>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="475,36,0,0" VerticalAlignment="Top" Width="133" Grid.Column="1">
+            <GroupBox Header="Çizgi" BorderBrush="Beige" HorizontalAlignment="Left" Width="133" Height="73">
+                <Button x:Name="cizgiButon" Margin="32,10,29,8" RenderTransformOrigin="0.231,0.512" Height="32" Click="CizgiButon" Width="60" HorizontalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="cizgi.png"/>
+                    </Button.Background>
+                </Button>
+
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="613,36,0,0" VerticalAlignment="Top" Width="133" Grid.Column="1">
+            <GroupBox Header="Daire" BorderBrush="Beige" HorizontalAlignment="Left" Width="133" Height="73">
+                <Button x:Name="daireButon" Margin="32,10,29,8" RenderTransformOrigin="0.231,0.512" Height="32" Click="DaireButon" Width="60" HorizontalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="daire.png"/>
+                    </Button.Background>
+                </Button>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="751,36,0,0" VerticalAlignment="Top" Width="133" Grid.Column="1">
+            <GroupBox Header="Dikdörtgen/Kare" BorderBrush="Beige" HorizontalAlignment="Left" Width="133" Height="73">
+                <Button x:Name="kareButon" Margin="32,10,29,8" RenderTransformOrigin="0.231,0.512" Height="32" Click="KareButon" Width="55" HorizontalAlignment="Center">
+                    <Button.Background>
+                        <ImageBrush ImageSource="kare.png"/>
+                    </Button.Background>
+                </Button>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="889,36,0,0" VerticalAlignment="Top" Width="133
+                    " RenderTransformOrigin="1.282,0.931" Grid.Column="1">
+            <GroupBox Header="Geri Alma" BorderBrush="Beige" HorizontalAlignment="Center" Width="133" Height="73">
+                <Button Content="Geri Al" Margin="32,10,29,8" RenderTransformOrigin="0.231,0.512" Height="32" Click="GeriAl" Background="#FFAE9898" Width="60" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </GroupBox>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="74" Margin="1007,36,0,0" VerticalAlignment="Top" Width="133
+                    " RenderTransformOrigin="1.282,0.931" Grid.Column="1">
+            <GroupBox Header="Temizle" BorderBrush="Beige" HorizontalAlignment="Center" Width="133" Height="73">
+                <Button Content="Tümünü Sil" Margin="23,10,18,8" RenderTransformOrigin="0.231,0.512" Height="32" Click="TumunuSil" Background="Red" Width="80" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </GroupBox>
+        </StackPanel>
+
+
+    </Grid>
+</Window>
